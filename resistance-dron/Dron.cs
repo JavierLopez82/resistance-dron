@@ -25,10 +25,39 @@ namespace resistance_dron
                     }
                 }
 
+                //Si se encuentra alguna cumbre
+                if (indexTops.Count > 0)
+                {
+                    numberConnons = indexTops.Count;
 
+                    while (!validateLoad(indexTops, numberConnons) && (numberConnons > 0))
+                        numberConnons--;
+                }
             }
 
             return numberConnons;
+        }
+
+        private bool validateLoad(List<int> indexTops, int numberConnons)
+        {
+            List<List<int>> listCombinations = new List<List<int>>();
+            List<bool> existConnon = new List<bool>(indexTops.Count);
+
+            int numberConnonsActual = numberConnons;
+
+            if (indexTops.Count >= numberConnons)
+            {
+                //Obtener las combinaciones
+                
+
+                foreach (var listC in listCombinations)
+                {
+                    //Validar cada combinacion
+                    
+                }
+            }
+
+            return false;
         }
     }
 }
