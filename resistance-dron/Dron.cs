@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace resistance_dron
 {
-    public class Class1
+    public class Dron
     {
+        public int maxNumberLaserCannons(int[] A)
+        {
+            int numberConnons = 0;
+
+            return numberConnons;
+        }
     }
 }
