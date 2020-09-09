@@ -8,6 +8,12 @@ namespace resistance_dron
 {
     public class Dron
     {
+        /// <summary>
+        /// Se obtiene el número máximo de cañones que deberá cargar un dron dependiendo 
+        /// del mapa de cumbres representado por el array pasado por parámetro
+        /// </summary>
+        /// <param name="A">Array que representa el mapa del terreno que contiene las cumbres</param>
+        /// <returns>El número de máximo de cañones que se podrán colocar</returns>
         public int maxNumberLaserCannons(int[] A)
         {
             int numberConnons = 0;
@@ -38,6 +44,12 @@ namespace resistance_dron
             return numberConnons;
         }
 
+        /// <summary>
+        /// Valida si en las cumbres dadas se pueden colocar el número de cañones pasado
+        /// </summary>
+        /// <param name="indexTops">Mapa de las cumbres que contiene el terreno</param>
+        /// <param name="numberConnons">Número de cañones que se quiere colocar</param>
+        /// <returns>True si se pueden colocar los cañones pasados, false en caso contrario</returns>
         private bool validateLoad(List<int> indexTops, int numberConnons)
         {
             List<List<int>> listCombinations = new List<List<int>>();
@@ -53,11 +65,36 @@ namespace resistance_dron
                 foreach (var listC in listCombinations)
                 {
                     //Validar cada combinacion
-                    
+                    if (validateCombination(listC, numberConnons))
+                        return true;
                 }
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Valida si en la combinación de cumbres dada se pueden colocar el número de cañones pasado
+        /// </summary>
+        /// <param name="listC">Combinación de las cumbres iniciales</param>
+        /// <param name="numberConnons">Número de cañones a comprobar</param>
+        /// <returns>True si la combinación de cumbres es válida para el número de cañones pasado, false en caso contrario</returns>
+        private bool validateCombination(List<int> listC, int numberConnons)
+        {
+            int cActualValue = -numberConnons;
+
+            if (listC.Count <= 0)
+                return false;
+
+            foreach (var elm in listC)
+            {
+                if (elm < (cActualValue + numberConnons))
+                    return false;
+                else
+                    cActualValue = elm;
+            }
+
+            return true;
         }
     }
 }
