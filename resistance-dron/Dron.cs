@@ -12,6 +12,9 @@ namespace resistance_dron
         {
             int numberConnons = 0;
 
+
+
+
             return numberConnons;
         }
     }

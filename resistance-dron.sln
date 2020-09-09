@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resistance-dron", "resistance-dron\resistance-dron.csproj", "{87C9E34A-18A1-40E5-A247-553187216B06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resistance-dron-tests", "resistance-dron-tests\resistance-dron-tests.csproj", "{BC052321-ECD9-4583-B815-070204C41F84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{87C9E34A-18A1-40E5-A247-553187216B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C9E34A-18A1-40E5-A247-553187216B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C9E34A-18A1-40E5-A247-553187216B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC052321-ECD9-4583-B815-070204C41F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC052321-ECD9-4583-B815-070204C41F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC052321-ECD9-4583-B815-070204C41F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC052321-ECD9-4583-B815-070204C41F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
