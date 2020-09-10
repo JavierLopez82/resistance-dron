@@ -8,11 +8,11 @@ namespace resistance_dron_tests
     public class DronTests
     {
         [TestMethod]
-        public void maxNumberLaserCannons_NumberConnons4_NumberConnonsCalculated()
+        public void maxNumberLaserCannons_NumberConnons3_NumberConnonsCalculated()
         {
             Dron resistanceDron = new Dron();
             int numberConnons = 0;
-            int expected = 4;
+            int expected = 3;
             int[] A = { 1, 6, 4, 5, 4, 5, 1, 2, 3, 4, 7, 2 };
             string message = "";
 
@@ -21,6 +21,23 @@ namespace resistance_dron_tests
             message = String.Format("Incorretly maximum connons number -> expected: {0}, actual: {1}", expected.ToString(), numberConnons.ToString());
 
             Assert.AreEqual(expected, numberConnons, message);
+        }
+
+        [TestMethod]
+        public void maxNumberLaserConnons_NumberConnos4_ErrorNumberConnonsCalculated()
+        {
+
+            Dron resistanceDron = new Dron();
+            int numberConnons = 0;
+            int expected = 4;
+            int[] A = { 1, 6, 4, 5, 4, 5, 1, 2, 3, 4, 7, 2 };
+            string message = "";
+
+            numberConnons = resistanceDron.maxNumberLaserCannons(A);
+
+            message = String.Format("Corretly maximum connons number -> expected: {0}, actual: {1}", expected.ToString(), numberConnons.ToString());
+
+            Assert.AreNotEqual(expected, numberConnons, message);
         }
     }
 }

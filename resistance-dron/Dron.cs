@@ -60,7 +60,7 @@ namespace resistance_dron
             if (indexTops.Count >= numberConnons)
             {
                 //Obtener las combinaciones
-                
+                listCombinations = getAllCombinations(indexTops, numberConnons);
 
                 foreach (var listC in listCombinations)
                 {
@@ -71,6 +71,40 @@ namespace resistance_dron
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Obtiene todas las combinaciones de las cumbres dadas según el número de cañones
+        /// </summary>
+        /// <param name="indexTops">Lista de cumbres disponibles</param>
+        /// <param name="numberConnons">Número de cañones a colocar</param>
+        /// <returns>Todas las combinaciones de las cumbres por el número de cañones</returns>
+        private List<List<int>> getAllCombinations(List<int> indexTops, int numberConnons)
+        {
+            List<List<int>> combinations = new List<List<int>>();
+
+            //int[] elem = indexTops.ToArray();
+            //int size = elem.Length;
+            int size = indexTops.Count;
+
+            if (numberConnons <= size)
+            {
+                int[] numbers = new int[numberConnons];
+                //List<int> numbers = new List<int>(numberConnons);
+                for (int i = 0; i < numberConnons; i++)
+                {
+                    numbers[i] = i;
+                }
+
+                do
+                {
+                    //combinations.Add(numbers.Select(n => elem[n]).ToList());
+                    combinations.Add(numbers.Select(n => indexTops[n]).ToList());
+                }
+                while (nextCombination(numbers, size, numberConnons));
+            }
+
+            return combinations;
         }
 
         /// <summary>
@@ -95,6 +129,35 @@ namespace resistance_dron
             }
 
             return true;
+        }
+
+        private bool nextCombination(int[] num, int n, int k)
+        //private bool nextCombination(List<int> num, int n, int k)
+        {
+            bool finished = false;
+            bool changed = false;
+
+            if (k > 0)
+            {
+                for (int i = (k - 1); (!finished && !changed); i--)
+                {
+                    if (num[i] < (n - 1) - (k - 1) + i)
+                    {
+                        num[i]++;
+                        if (i < (k - 1))
+                        {
+                            for (int j = (i + 1); j < k; j++)
+                            {
+                                num[j] = num[j - 1] + 1;
+                            }
+                        }
+                        changed = true;
+                    }
+                    finished = (i == 0);
+                }
+            }
+
+            return changed;
         }
     }
 }
