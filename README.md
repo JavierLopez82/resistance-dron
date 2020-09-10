@@ -15,3 +15,4 @@ Proyecto de pruebas unitarias para el proyecto resistance-dron.
 * Funciones Test:
     - maxNumberLaserCannons_NumberConnons3_NumberConnonsCalculated(): Lanza una prueba sobre la función "maxNumberLaserCannons" que comprueba si devuelve el número correcto.
     - maxNumberLaserConnons_NumberConnos4_ErrorNumberConnonsCalculated(): Lanza una prueba sobre la función "maxNumberLaserCannons" que comprueba si devuelve el número incorrecto.
+
